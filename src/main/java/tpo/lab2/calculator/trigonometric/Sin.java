@@ -10,6 +10,10 @@ import static java.lang.Math.PI;
 
 public class Sin extends Calculator {
 
+    public Sin(double accuracy) {
+        super(accuracy);
+    }
+
     public Sin(BigDecimal accuracy) {
         super(accuracy);
     }

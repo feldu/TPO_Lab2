@@ -9,6 +9,10 @@ public abstract class Calculator implements Calculable {
     @Getter
     private final BigDecimal accuracy;
 
+    public Calculator(double accuracy) {
+        this(BigDecimal.valueOf(accuracy));
+    }
+
     public Calculator(BigDecimal accuracy) {
         Objects.requireNonNull(accuracy, "Accuracy should not be NULL");
         if (accuracy.compareTo(BigDecimal.ZERO) <= 0)
