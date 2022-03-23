@@ -22,7 +22,7 @@ public class Log2 extends Calculator {
     @Override
     public BigDecimal calculate(BigDecimal x) {
         return ln.calculate(x)
-                .divide(ln.calculate(new BigDecimal(2)), 10000, HALF_EVEN)
+                .divide(ln.calculate(new BigDecimal(2)), 50, HALF_EVEN)
                 .setScale(getAccuracy().scale(), HALF_EVEN);
     }
 }

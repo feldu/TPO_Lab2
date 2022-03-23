@@ -35,11 +35,11 @@ public class Ln extends Calculator {
                         new BigDecimal(-1)
                                 .pow(i - 1)
                                 .multiply(x.subtract(BigDecimal.ONE).pow(i))
-                                .divide(BigDecimal.valueOf(i), getAccuracy().scale(), HALF_UP)
+                                .divide(BigDecimal.valueOf(i), 50, HALF_UP)
                 );
                 i++;
             } while (getAccuracy().compareTo((prevValue.subtract(curValue)).abs()) < 0 && i < MAX_ITERATIONS);
-            return curValue.add(prevValue).divide(BigDecimal.valueOf(2), HALF_EVEN);
+            return curValue.add(prevValue).divide(BigDecimal.valueOf(2), HALF_EVEN).setScale(getAccuracy().scale(), HALF_EVEN);
         } else {
             do {
                 prevValue = curValue;
@@ -47,11 +47,11 @@ public class Ln extends Calculator {
                         new BigDecimal(-1)
                                 .pow(i - 1).pow(i - 1)
                                 .divide(x.subtract(BigDecimal.ONE).pow(i), getAccuracy().scale(), HALF_UP)
-                                .divide(BigDecimal.valueOf(i), getAccuracy().scale(), HALF_UP)
+                                .divide(BigDecimal.valueOf(i), 50, HALF_UP)
                 );
                 i++;
             } while (getAccuracy().compareTo((prevValue.subtract(curValue)).abs()) < 0 && i < MAX_ITERATIONS);
-            return curValue.add(calculate(x.subtract(BigDecimal.ONE)));
+            return curValue.add(calculate(x.subtract(BigDecimal.ONE))).setScale(getAccuracy().scale(), HALF_EVEN);
         }
     }
 }
