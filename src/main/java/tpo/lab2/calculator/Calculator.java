@@ -17,6 +17,8 @@ public abstract class Calculator implements Calculable {
         Objects.requireNonNull(accuracy, "Accuracy should not be NULL");
         if (accuracy.compareTo(BigDecimal.ZERO) <= 0)
             throw new IllegalArgumentException("Accuracy should be greater than zero");
+        if (accuracy.compareTo(BigDecimal.ONE) >= 0)
+            throw new IllegalArgumentException("Accuracy should be less than one");
         this.accuracy = accuracy;
     }
 }
