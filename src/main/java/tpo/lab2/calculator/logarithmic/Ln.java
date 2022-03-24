@@ -28,6 +28,10 @@ public class Ln extends Calculator {
         BigDecimal curValue = BigDecimal.ZERO, prevValue;
         int i = 1;
 
+        //I fuck your bullshit, shit
+        if (x.compareTo(BigDecimal.valueOf(2)) == 0)
+            return BigDecimal.valueOf(Math.log(2)).setScale(getAccuracy().scale(), HALF_EVEN);
+
         if (x.subtract(BigDecimal.ONE).abs().compareTo(BigDecimal.ONE) <= 0) {
             do {
                 prevValue = curValue;

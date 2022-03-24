@@ -22,6 +22,8 @@ public class Sin extends Calculator {
     public BigDecimal calculate(BigDecimal x) {
         BigDecimal sum = BigDecimal.ZERO, prev;
         int i = 0;
+        if (x.remainder(BigDecimal.valueOf(PI)).compareTo(BigDecimal.ZERO) == 0)
+            return BigDecimal.ZERO;
         //periodical function -> fuck big X
         x = x.remainder(BigDecimal.valueOf(2 * PI));
         do {
