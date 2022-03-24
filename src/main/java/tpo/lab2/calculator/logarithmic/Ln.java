@@ -35,7 +35,7 @@ public class Ln extends Calculator {
                         new BigDecimal(-1)
                                 .pow(i - 1)
                                 .multiply(x.subtract(BigDecimal.ONE).pow(i))
-                                .divide(BigDecimal.valueOf(i), 50, HALF_UP)
+                                .divide(BigDecimal.valueOf(i), Calculator.LOGARITHMIC_CALC_ACCURACY.scale(), HALF_UP)
                 );
                 i++;
             } while (getAccuracy().compareTo((prevValue.subtract(curValue)).abs()) < 0 && i < MAX_ITERATIONS);
@@ -47,7 +47,7 @@ public class Ln extends Calculator {
                         new BigDecimal(-1)
                                 .pow(i - 1).pow(i - 1)
                                 .divide(x.subtract(BigDecimal.ONE).pow(i), getAccuracy().scale(), HALF_UP)
-                                .divide(BigDecimal.valueOf(i), 50, HALF_UP)
+                                .divide(BigDecimal.valueOf(i), Calculator.LOGARITHMIC_CALC_ACCURACY.scale(), HALF_UP)
                 );
                 i++;
             } while (getAccuracy().compareTo((prevValue.subtract(curValue)).abs()) < 0 && i < MAX_ITERATIONS);

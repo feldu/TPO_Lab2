@@ -11,14 +11,14 @@ public class Cot extends Calculator {
 
     public Cot(double accuracy) {
         super(accuracy);
-        this.cos = new Cos(accuracy);
-        this.sin = new Sin(accuracy);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     public Cot(BigDecimal accuracy) {
         super(accuracy);
-        this.cos = new Cos(accuracy);
-        this.sin = new Sin(accuracy);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     @Override
@@ -27,6 +27,6 @@ public class Cot extends Calculator {
         final BigDecimal sinValue = sin.calculate(x);
         if (sinValue.compareTo(BigDecimal.ZERO) == 0)
             throw new ArithmeticException("X value is not valid for function Cot");
-        return cosValue.divide(sinValue, 1000, RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
+        return cosValue.divide(sinValue, Calculator.TRIGONOMETRIC_CALC_ACCURACY.scale(), RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
     }
 }

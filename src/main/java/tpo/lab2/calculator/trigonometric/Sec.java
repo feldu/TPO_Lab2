@@ -10,12 +10,12 @@ public class Sec extends Calculator {
 
     public Sec(double accuracy) {
         super(accuracy);
-        this.cos = new Cos(accuracy);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     public Sec(BigDecimal accuracy) {
         super(accuracy);
-        this.cos = new Cos(accuracy);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     @Override
@@ -23,6 +23,6 @@ public class Sec extends Calculator {
         final BigDecimal cosValue = cos.calculate(x);
         if (cosValue.compareTo(BigDecimal.ZERO) == 0)
             throw new ArithmeticException("X value is not valid for function Sec");
-        return BigDecimal.ONE.divide(cosValue, 1000, RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
+        return BigDecimal.ONE.divide(cosValue, Calculator.TRIGONOMETRIC_CALC_ACCURACY.scale(), RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
     }
 }

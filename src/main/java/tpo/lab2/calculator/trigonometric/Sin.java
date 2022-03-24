@@ -30,7 +30,7 @@ public class Sin extends Calculator {
                     new BigDecimal(-1)
                             .pow(i)
                             .multiply(x.pow(2 * i + 1))
-                            .divide(new BigDecimal(calculateFactorial(2 * i + 1)), 1000, RoundingMode.HALF_UP));
+                            .divide(new BigDecimal(calculateFactorial(2 * i + 1)), Calculator.TRIGONOMETRIC_CALC_ACCURACY.scale(), RoundingMode.HALF_UP));
             i++;
         } while (getAccuracy().compareTo(prev.subtract(sum).abs()) < 0);
         return sum.setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);

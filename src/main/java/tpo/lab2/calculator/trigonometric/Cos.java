@@ -5,7 +5,6 @@ import tpo.lab2.calculator.Calculator;
 import java.math.BigDecimal;
 
 import static java.lang.Math.PI;
-import static java.math.MathContext.DECIMAL128;
 import static java.math.RoundingMode.HALF_EVEN;
 
 public class Cos extends Calculator {
@@ -13,12 +12,12 @@ public class Cos extends Calculator {
 
     public Cos(double accuracy) {
         super(accuracy);
-        this.sin = new Sin(accuracy);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     public Cos(BigDecimal accuracy) {
         super(accuracy);
-        this.sin = new Sin(accuracy);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     @Override
@@ -27,7 +26,7 @@ public class Cos extends Calculator {
         final BigDecimal result =
                 sin.calculate(
                         new BigDecimal(PI)
-                                .divide(new BigDecimal(2), DECIMAL128.getPrecision(), HALF_EVEN)
+                                .divide(new BigDecimal(2), Calculator.TRIGONOMETRIC_CALC_ACCURACY.scale(), HALF_EVEN)
                                 .subtract(x)
                 );
         return result.setScale(getAccuracy().scale(), HALF_EVEN);

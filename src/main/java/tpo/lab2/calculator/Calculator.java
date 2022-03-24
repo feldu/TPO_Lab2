@@ -3,11 +3,14 @@ package tpo.lab2.calculator;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 public abstract class Calculator implements Calculable {
     @Getter
     private final BigDecimal accuracy;
+    public static BigDecimal TRIGONOMETRIC_CALC_ACCURACY = BigDecimal.valueOf(10E-300);
+    public static BigDecimal LOGARITHMIC_CALC_ACCURACY = BigDecimal.valueOf(10E-50);
 
     public Calculator(double accuracy) {
         this(BigDecimal.valueOf(accuracy));

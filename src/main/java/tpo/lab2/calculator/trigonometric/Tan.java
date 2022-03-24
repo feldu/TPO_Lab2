@@ -10,14 +10,14 @@ public class Tan extends Calculator {
     private final Cos cos;
     public Tan(double accuracy) {
         super(accuracy);
-        this.sin = new Sin(accuracy);
-        this.cos = new Cos(accuracy);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     public Tan(BigDecimal accuracy) {
         super(accuracy);
-        this.sin = new Sin(accuracy);
-        this.cos = new Cos(accuracy);
+        this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
+        this.cos = new Cos(Calculator.TRIGONOMETRIC_CALC_ACCURACY);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class Tan extends Calculator {
         final BigDecimal cosValue = cos.calculate(x);
         if (cosValue.compareTo(BigDecimal.ZERO) == 0)
             throw new ArithmeticException("X value is not valid for function Tan");
-        return sinValue.divide(cosValue, 1000, RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
+        return sinValue.divide(cosValue, Calculator.TRIGONOMETRIC_CALC_ACCURACY.scale(), RoundingMode.HALF_EVEN).setScale(getAccuracy().scale(), RoundingMode.HALF_EVEN);
     }
 }
