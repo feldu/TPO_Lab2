@@ -23,7 +23,7 @@ public class Ln extends Calculator {
         if (x.compareTo(BigDecimal.ZERO) <= 0)
             throw new ArithmeticException("X value is not valid for function Ln");
         if (x.compareTo(BigDecimal.ONE) == 0)
-            return BigDecimal.ZERO;
+            return BigDecimal.ZERO.setScale(getAccuracy().scale(), HALF_EVEN);
 
         BigDecimal curValue = BigDecimal.ZERO, prevValue;
         int i = 1;

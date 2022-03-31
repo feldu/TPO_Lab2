@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 
 import static java.lang.Math.PI;
+import static java.math.RoundingMode.HALF_EVEN;
 
 public class Sin extends Calculator {
 
@@ -23,7 +24,7 @@ public class Sin extends Calculator {
         BigDecimal sum = BigDecimal.ZERO, prev;
         int i = 0;
         if (x.remainder(BigDecimal.valueOf(PI)).compareTo(BigDecimal.ZERO) == 0)
-            return BigDecimal.ZERO;
+            return BigDecimal.ZERO.setScale(getAccuracy().scale(), HALF_EVEN);
         //periodical function -> fuck big X
         x = x.remainder(BigDecimal.valueOf(2 * PI));
         do {
