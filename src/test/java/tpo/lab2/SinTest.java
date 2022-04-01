@@ -56,4 +56,18 @@ public class SinTest {
         assertEquals(BigDecimal.valueOf(Math.sin(x)).setScale(ACCURACY.scale(), RoundingMode.HALF_EVEN),
                 sin.calculate(BigDecimal.valueOf(x)));
     }
+
+    @ParameterizedTest(name = "{index}. Test sin({0}) in big X values")
+    @ValueSource(doubles = {-10e4, 10e4})
+    void checkBigX(double x) {
+        assertEquals(BigDecimal.valueOf(Math.sin(x)).setScale(ACCURACY.scale(), RoundingMode.HALF_EVEN),
+                sin.calculate(BigDecimal.valueOf(x)));
+    }
+
+    @ParameterizedTest(name = "{index}. Test sin({0}) in small X values")
+    @ValueSource(doubles = {-10e-4, 10e-4})
+    void checkSmallX(double x) {
+        assertEquals(BigDecimal.valueOf(Math.sin(x)).setScale(ACCURACY.scale(), RoundingMode.HALF_EVEN),
+                sin.calculate(BigDecimal.valueOf(x)));
+    }
 }
