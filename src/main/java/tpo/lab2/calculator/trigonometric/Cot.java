@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Cot extends Calculator {
-    private final Cos cos;
-    private final Sin sin;
+    private Cos cos;
+    private Sin sin;
 
     public Cot(double accuracy) {
         super(accuracy);

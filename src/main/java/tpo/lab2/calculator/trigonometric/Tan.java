@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Tan extends Calculator {
-    private final Sin sin;
-    private final Cos cos;
+    private Sin sin;
+    private Cos cos;
     public Tan(double accuracy) {
         super(accuracy);
         this.sin = new Sin(Calculator.TRIGONOMETRIC_CALC_ACCURACY);

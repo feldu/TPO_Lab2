@@ -3,7 +3,6 @@ package tpo.lab2.calculator;
 import lombok.Getter;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Objects;
 
 public abstract class Calculator implements Calculable {

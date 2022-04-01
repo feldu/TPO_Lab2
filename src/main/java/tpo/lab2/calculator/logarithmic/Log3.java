@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import static java.math.RoundingMode.HALF_EVEN;
 
 public class Log3 extends Calculator {
-    private final Ln ln;
+    private Ln ln;
 
     public Log3(double accuracy) {
         super(accuracy);
