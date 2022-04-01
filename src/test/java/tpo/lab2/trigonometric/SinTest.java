@@ -1,4 +1,4 @@
-package tpo.lab2;
+package tpo.lab2.trigonometric;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

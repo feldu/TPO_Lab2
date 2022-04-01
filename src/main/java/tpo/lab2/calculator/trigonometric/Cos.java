@@ -8,7 +8,7 @@ import static java.lang.Math.PI;
 import static java.math.RoundingMode.HALF_EVEN;
 
 public class Cos extends Calculator {
-    private final Sin sin;
+    private Sin sin;
 
     public Cos(double accuracy) {
         super(accuracy);
