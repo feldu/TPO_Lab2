@@ -11,15 +11,15 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class FunctionsSystem extends Calculator {
-    private final Cos cos;
-    private final Sin sin;
-    private final Sec sec;
-    private final Tan tan;
-    private final Cot cot;
-    private final Ln ln;
-    private final Log2 log2;
-    private final Log3 log3;
-    private final Log10 log10;
+    private Cos cos;
+    private Sin sin;
+    private Sec sec;
+    private Tan tan;
+    private Cot cot;
+    private Ln ln;
+    private Log2 log2;
+    private Log3 log3;
+    private Log10 log10;
 
 
     public FunctionsSystem(double accuracy) {
