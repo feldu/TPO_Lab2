@@ -50,7 +50,7 @@ public class Ln extends Calculator {
                 curValue = curValue.add(
                         new BigDecimal(-1)
                                 .pow(i - 1).pow(i - 1)
-                                .divide(x.subtract(BigDecimal.ONE).pow(i), getAccuracy().scale(), HALF_UP)
+                                .divide(x.subtract(BigDecimal.ONE).pow(i), Calculator.LOGARITHMIC_CALC_ACCURACY.scale(), HALF_UP)
                                 .divide(BigDecimal.valueOf(i), Calculator.LOGARITHMIC_CALC_ACCURACY.scale(), HALF_UP)
                 );
                 i++;
